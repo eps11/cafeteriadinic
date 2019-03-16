@@ -49,9 +49,7 @@ export class AppComponent implements OnInit, OnDestroy {
                                 menuItem.RouterOutletLink,
                                 menuItem.Styles
                             )
-                    )),
-                err => console.error(err),
-                () => console.log(this.menuItems)
+                    ))
             );
     }
 }

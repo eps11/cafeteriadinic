@@ -6,6 +6,30 @@
 }
 
 .content {
+    margin-top: 50px;
     grid-area: content;
+    display: grid;
+    grid-template-rows:
+        150px
+        0.25fr
+        1fr;
+    grid-template-areas:
+        'coffee-img'
+        'heading-1'
+        'introduction';
+
+    .coffee-img {
+        justify-self: center;
+        grid-area: coffee-img;
+    }
+
+    .heading-1 {
+        grid-area: heading-1;
+        justify-self: center;
+    }
+
+    p {
+        grid-area: introduction;
+    }
 }
 

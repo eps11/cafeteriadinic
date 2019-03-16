@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TopNavComponent } from './components/layout/top-nav/top-nav.component';
-import { MainComponent } from './components/layout/main/main.component';
 
 import {
     MatSidenavModule,
@@ -37,7 +36,6 @@ const MatModules = [
     declarations: [
         AppComponent,
         TopNavComponent,
-        MainComponent,
         HomeComponent,
         PageNotFoundComponent,
         BlogComponent,
