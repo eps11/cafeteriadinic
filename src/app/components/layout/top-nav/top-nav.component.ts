@@ -29,6 +29,7 @@ export class TopNavComponent implements OnInit {
                     (this.menuItems = data.map(
                         menuItem =>
                             new TopMenuItem(
+                                menuItem.id,
                                 menuItem.Title,
                                 menuItem.Link,
                                 menuItem.Classes,

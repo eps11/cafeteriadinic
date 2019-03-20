@@ -1,11 +1,6 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import {
-    APISideMenuData,
-    APITopMenuData,
-    MenuService,
-} from './services/menu/menu.service';
-import { TopMenuItem } from './models/top-menu-item.model';
+import { APISideMenuData, MenuService } from './services/menu/menu.service';
 import { SideMenuItem } from './models/side-menu-item.model';
 
 @Component({
@@ -16,7 +11,7 @@ import { SideMenuItem } from './models/side-menu-item.model';
 export class AppComponent implements OnInit, OnDestroy {
     mobileQuery: MediaQueryList;
     readonly _mobileQueryListener: () => void;
-    public menuItems = [];
+    public menuItems: SideMenuItem[] = [];
 
     constructor(
         changeDetectorRef: ChangeDetectorRef,
@@ -39,17 +34,20 @@ export class AppComponent implements OnInit, OnDestroy {
     private initSideMenu(): void {
         this.menuService
             .getSideMenuData()
-            .subscribe(
-                (data: APISideMenuData[]) =>
-                    (this.menuItems = data.map(
+            .subscribe((data: APISideMenuData[]) => {
+                this.menuItems = data
+                    .sort((item, next) => item.Sort - next.Sort)
+                    .map(
                         menuItem =>
                             new SideMenuItem(
+                                menuItem.id,
                                 menuItem.Title,
                                 menuItem.MaterialIcon,
                                 menuItem.RouterOutletLink,
-                                menuItem.Styles
+                                menuItem.Styles,
+                                menuItem.Sort
                             )
-                    ))
-            );
+                    );
+            });
     }
 }

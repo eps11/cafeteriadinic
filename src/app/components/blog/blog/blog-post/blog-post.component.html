@@ -1,0 +1,15 @@
+<mat-card-header>
+    <div mat-card-avatar class="category-icon">
+        <mat-icon [inline]="true">{{ blogPost.getIcon() }}</mat-icon>
+    </div>
+    <mat-card-title (click)="viewPost.emit(null)" style="cursor: pointer;">{{ blogPost.title }}</mat-card-title>
+    <mat-card-subtitle>{{ blogPost.category }}</mat-card-subtitle>
+</mat-card-header>
+<div class="colour-banner" (click)="viewPost.emit(null)" [style.background]="blogPost.colour"></div>
+<img class="head-image" (click)="viewPost.emit(null)" mat-card-image src="https://www.gettyimages.com/gi-resources/images/CreativeLandingPage/HP_Sept_24_2018/CR3_GettyImages-159018836.jpg" alt="Photo of a Shiba Inu">
+<mat-card-content>
+    {{ blogPost.getContentShortened() }}
+</mat-card-content>
+<mat-card-actions>
+    <button (click)="viewPost.emit(null)" mat-button>READ MORE</button>
+</mat-card-actions>

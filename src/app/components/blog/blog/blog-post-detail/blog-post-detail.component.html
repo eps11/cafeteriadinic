@@ -1,0 +1,17 @@
+<div class="container" *ngIf="loaded">
+    <div class="title">
+        <div class="title-bar">
+            <mat-icon style="font-size: 36px;" [inline]="true">{{ blogPost.getIcon() }}</mat-icon>
+            <h2 class="title-content">
+                {{ blogPost.title }}
+            </h2>
+        </div>
+        <span class="subtitle">{{ blogPost.category }}</span>
+    </div>
+    <mat-list style="margin-bottom: 20px;">
+        <mat-divider></mat-divider>
+    </mat-list>
+    <div class="content">
+        {{ blogPost.content }}
+    </div>
+</div>

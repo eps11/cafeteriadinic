@@ -22,15 +22,19 @@ export class MenuService {
 }
 
 export interface APITopMenuData {
+    id: number;
     Title: string;
     Link: string;
     Classes: string;
     Styles: object;
+    Sort: number;
 }
 
 export interface APISideMenuData {
+    id: number;
     Title: string;
     MaterialIcon: string;
     RouterOutletLink: string;
     Styles: object;
+    Sort: number;
 }
