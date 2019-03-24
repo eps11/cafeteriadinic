@@ -1,3 +1,4 @@
+
 <div class="about-container">
     <div class="title">
         <div class="title-bar">
@@ -10,7 +11,7 @@
             Is a subtitle necessary?
         </span>
     </div>
-    <mat-list style="margin-bottom: 20px;">
+    <mat-list style="margin-bottom: 20px; margin-top: 20px;">
         <mat-divider></mat-divider>
     </mat-list>
     <div class="content-title">
@@ -21,7 +22,7 @@
         </p>
     </div>
     <div class="content">
-        <mat-card *cdkVirtualFor="let item of technologyItems">
+        <mat-card *ngFor="let item of technologyItems">
             <div class="image-container">
                 <img class="image" src="{{ utils.getFullHostURL(item.logoImage) }}" alt="typescript"/>
             </div>

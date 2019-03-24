@@ -16,6 +16,7 @@ import {
     MatListModule,
     MatSelectModule,
     MatDividerModule,
+    MatStepperModule,
 } from '@angular/material';
 import { RoutingModule } from './routing/routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -27,6 +28,7 @@ import { BlogPostDetailComponent } from './components/blog/blog/blog-post-detail
 import { AboutComponent } from './components/about/about.component';
 import { FinanceCalculatorComponent } from './components/finance-calculator/finance-calculator.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const MatModules = [
     MatSidenavModule,
@@ -38,6 +40,7 @@ const MatModules = [
     MatIconModule,
     MatListModule,
     MatSelectModule,
+    MatStepperModule,
     MatDividerModule,
     ScrollingModule,
 ];
@@ -59,6 +62,9 @@ const MatModules = [
         BrowserAnimationsModule,
         RoutingModule,
         HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        ScrollingModule,
         ...MatModules,
     ],
     providers: [],

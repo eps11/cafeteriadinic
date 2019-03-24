@@ -86,6 +86,7 @@ export class BlogComponent implements OnInit, OnDestroy {
      * @param sortItem Handles sorting of blog posts according to user-selected types.
      */
     public sortBlogs(value: string): void {
+        console.log(value);
         switch (value) {
             case 'created_asc':
                 this.sortByCreated(true);

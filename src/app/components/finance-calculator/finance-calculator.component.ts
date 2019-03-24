@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-finance-calculator',
@@ -6,7 +7,21 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./finance-calculator.component.scss'],
 })
 export class FinanceCalculatorComponent implements OnInit {
-    constructor() {}
+    firstFormGroup: FormGroup;
+    secondFormGroup: FormGroup;
 
-    ngOnInit() {}
+    constructor(private _formBuilder: FormBuilder) {}
+
+    ngOnInit() {
+        this.firstFormGroup = this._formBuilder.group({
+            income: ['', Validators.required],
+            expenses: ['', Validators.required],
+            assets: ['', Validators.required],
+            liabilities: ['', Validators.required],
+        });
+
+        this.secondFormGroup = this._formBuilder.group({
+            secondCtrl: ['', Validators.required],
+        });
+    }
 }

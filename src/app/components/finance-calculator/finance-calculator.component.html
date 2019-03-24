@@ -1,3 +1,60 @@
-<p>
-  finance-calculator works!
-</p>
+<div class="about-container">
+    <div class="title">
+        <div class="title-bar">
+            <mat-icon style="font-size: 36px; margin-top: 20px; margin-bottom: 20px;" [inline]="true">show_chart</mat-icon>
+            <h2 class="title-content">
+                Personal Finance Calculator
+            </h2>
+        </div>
+        <span class="subtitle">
+            {{ breadCrumbs }}
+        </span>
+    </div>
+    <mat-list style="margin-bottom: 20px;">
+        <mat-divider></mat-divider>
+    </mat-list>
+    <div class="content">
+        <mat-horizontal-stepper style="background-color: #fafafa;" [linear]="true" #stepper>
+            <mat-step [stepControl]="firstFormGroup">
+                <form class="step1-form-container" [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Basic Details</ng-template>
+                    <mat-form-field>
+                        <input matInput placeholder="Gross Income" formControlName="income" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Gross Expenses" formControlName="expenses" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Gross Asset Value" formControlName="assets" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Gross Liability Value" formControlName="liabilities" required>
+                    </mat-form-field>
+                    <div class="submit-btn">
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup">
+                <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Fill out your address</ng-template>
+                    <mat-form-field>
+                        <input matInput placeholder="Address" formControlName="secondCtrl" required>
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                You are now done.
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="stepper.reset()">Reset</button>
+                </div>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </div>
+</div>
