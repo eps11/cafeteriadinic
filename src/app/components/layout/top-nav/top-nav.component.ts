@@ -4,6 +4,7 @@ import {
     MenuService,
 } from '../../../services/menu/menu.service';
 import { TopMenuItem } from '../../../models/top-menu-item.model';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
     selector: 'app-top-nav',
@@ -13,9 +14,18 @@ import { TopMenuItem } from '../../../models/top-menu-item.model';
 export class TopNavComponent implements OnInit {
     public title = 'La Cafeteria di Nic';
     public menuItems: TopMenuItem[] = [];
+    public mobileViewport: boolean;
     @Output() public sidenavToggle = new EventEmitter<null>();
 
-    constructor(private menuService: MenuService) {}
+    constructor(
+        private menuService: MenuService,
+        breakpointObserver: BreakpointObserver
+    ) {
+        // Check if the user is viewing in mobile or not
+        breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
+            this.mobileViewport = result.matches;
+        });
+    }
 
     ngOnInit() {
         this.initTopMenu();

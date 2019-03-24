@@ -1,13 +1,10 @@
 <mat-toolbar color="primary" class="top-nav-fixed">
-    <div class="menu-button">
-        <mat-icon
-                (click)="sidenavToggle.emit(null)"
-                style="cursor: pointer"
-        >menu</mat-icon>
-    </div>
+    <button mat-button class="menu-button" (click)="sidenavToggle.emit(null)">
+        <mat-icon style="cursor: pointer">menu</mat-icon>
+    </button>
     <div class="title">{{ title }}</div>
     <div class="spacer"></div>
-    <div class="links">
+    <div class="links" *ngIf="!mobileViewport">
         <i
                 *ngFor="let item of menuItems"
                 (click)="menuService.redirectToNewTab(item.link)"

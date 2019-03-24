@@ -1,0 +1,38 @@
+<div class="about-container">
+    <div class="title">
+        <div class="title-bar">
+            <mat-icon style="font-size: 36px; margin-top: 20px; margin-bottom: 20px;" [inline]="true">face</mat-icon>
+            <h2 class="title-content">
+                About Me
+            </h2>
+        </div>
+        <span class="subtitle">
+            Is a subtitle necessary?
+        </span>
+    </div>
+    <mat-list style="margin-bottom: 20px;">
+        <mat-divider></mat-divider>
+    </mat-list>
+    <div class="content-title">
+        <p>
+            I'm Nic. I'm a professional software developer at a technology driven financial advice company,
+            using a mix of Angular 7 for our front-end & a back-end LEMP stack, supported by the SilverStripe framework
+            for PHP. Here are a few technologies I enjoy using:
+        </p>
+    </div>
+    <div class="content">
+        <mat-card *cdkVirtualFor="let item of technologyItems">
+            <div class="image-container">
+                <img class="image" src="{{ utils.getFullHostURL(item.logoImage) }}" alt="typescript"/>
+            </div>
+            <div class="sub-content">
+                <h2>{{ item.title }}</h2>
+                <div>
+                    <p>
+                        {{ item.content }}
+                    </p>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

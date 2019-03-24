@@ -1,17 +1,20 @@
 import { APIBlogPost } from '../blog/blog.component';
+import { Injector } from '@angular/core';
+import { UtilitiesService } from '../../../services/utilities/utilities.service';
 
 export class BlogPost {
     public id: number;
     public title: string;
     public content: string;
     public category: string;
-    public image: object;
+    public image: string;
     public likes: number;
     public dislikes: number;
     public sort: number;
     public createdDate: string;
     public editedDate: string;
     public colour: string;
+    private utils: UtilitiesService;
 
     private categoryColourMap = {
         Technology: 'green',
@@ -24,14 +27,31 @@ export class BlogPost {
         this.title = post.Title;
         this.content = post.Content;
         this.category = post.Category;
-        this.image = post.CoverImage;
         this.likes = post.Likes;
         this.dislikes = post.Dislikes;
         this.sort = post.Sort;
         this.createdDate = post.created_at;
         this.editedDate = post.updated_at;
 
+        this.injectServices();
+        this.image = post.CoverImage
+            ? this.utils.getFullHostURL(post.CoverImage.url)
+            : '';
+
         this.colour = this.categoryColourMap[this.category];
+    }
+
+    private injectServices(): void {
+        const injector = Injector.create({
+            providers: [
+                {
+                    provide: UtilitiesService,
+                    useClass: UtilitiesService,
+                    deps: [],
+                },
+            ],
+        });
+        this.utils = injector.get(UtilitiesService);
     }
 
     /**

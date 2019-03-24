@@ -140,7 +140,7 @@ export interface APIBlogPost {
     id: number;
     Title: string;
     Content: string;
-    CoverImage: object;
+    CoverImage: any;
     Category: string;
     created_at: string;
     updated_at: string;

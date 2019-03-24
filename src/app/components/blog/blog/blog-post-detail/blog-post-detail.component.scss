@@ -10,14 +10,14 @@
     .title {
         grid-area: title;
         display: grid;
-        grid-template-columns: 0.25fr 0.75fr;
+        grid-template-columns: 1fr;
         grid-template-areas: 'title' 'category';
         align-items: center;
 
         .title-bar {
             grid-are: title;
             display: grid;
-            grid-template-columns: 0.2fr 0.8fr;
+            grid-template-columns: 50px 1fr;
             align-self: start;
             align-content: center;
 
@@ -27,6 +27,8 @@
         }
 
         .subtitle {
+            margin-left: 50px;
+            margin-top: -20px;
             grid-area: category;
             align-self: start;
         }

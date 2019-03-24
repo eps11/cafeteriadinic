@@ -24,6 +24,9 @@ import { PageNotFoundComponent } from './components/layout/page-not-found/page-n
 import { BlogComponent } from './components/blog/blog/blog.component';
 import { BlogPostComponent } from './components/blog/blog/blog-post/blog-post.component';
 import { BlogPostDetailComponent } from './components/blog/blog/blog-post-detail/blog-post-detail.component';
+import { AboutComponent } from './components/about/about.component';
+import { FinanceCalculatorComponent } from './components/finance-calculator/finance-calculator.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 const MatModules = [
     MatSidenavModule,
@@ -36,6 +39,7 @@ const MatModules = [
     MatListModule,
     MatSelectModule,
     MatDividerModule,
+    ScrollingModule,
 ];
 
 @NgModule({
@@ -47,6 +51,8 @@ const MatModules = [
         BlogComponent,
         BlogPostComponent,
         BlogPostDetailComponent,
+        AboutComponent,
+        FinanceCalculatorComponent,
     ],
     imports: [
         BrowserModule,
