@@ -1,28 +1,5 @@
-<div class="container">
-    <div class="title">
-        <h2>
-            <mat-icon style="font-size: 36px;" [inline]="true">rss_feed</mat-icon>
-            <span class="title-content">
-                {{ title }}
-            </span>
-        </h2>
-        <mat-form-field class="sort-type">
-            <mat-select placeholder="Sort">
-                <mat-option>-- None --</mat-option>
-                <mat-optgroup *ngFor="let group of sortTypeOptions" [label]="group.title">
-                    <mat-option *ngFor="let item of group.sortTypes" (click)="sortBlogs(item.value)" [value]="item.value">
-                        {{ item.title }}
-                    </mat-option>
-                </mat-optgroup>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <mat-list style="margin-bottom: 20px;">
-        <mat-divider></mat-divider>
-    </mat-list>
-    <div class="content">
-        <mat-card *ngFor="let item of blogPosts; index as i">
-            <app-blog-post (viewPost)="viewPost(item)" [blogPost]="item"></app-blog-post>
-        </mat-card>
-    </div>
+<div class="content">
+    <mat-card *ngFor="let item of blogPosts; index as i">
+        <app-blog-post (viewPost)="viewPost(item)" [blogPost]="item"></app-blog-post>
+    </mat-card>
 </div>

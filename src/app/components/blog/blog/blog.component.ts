@@ -5,16 +5,20 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NavigationProvider } from '../../layout/interfaces/NavigationProvider';
+import { SharedNavigationService } from '../../../services/shared-nevigation/shared-navigation.service';
+import { NavigationData } from '../../layout/models/NavigationData';
 
 @Component({
     selector: 'app-blog',
     templateUrl: './blog.component.html',
     styleUrls: ['./blog.component.scss'],
 })
-export class BlogComponent implements OnInit, OnDestroy {
+export class BlogComponent implements OnInit, OnDestroy, NavigationProvider {
     public title = 'Blog Posts';
     public blogPosts: BlogPost[] = [];
     private killTrigger$: Subject<any> = new Subject();
+    navData = new NavigationData('Blog', '', 'rss_feed');
 
     public sortTypeOptions: SortCategory[] = [
         {
@@ -47,11 +51,13 @@ export class BlogComponent implements OnInit, OnDestroy {
 
     constructor(
         private blogService: BlogService,
+        public navService: SharedNavigationService,
         private route: ActivatedRoute,
         private router: Router
     ) {}
 
     ngOnInit() {
+        this.navService.initNavigation(this.navData);
         this.initBlogPosts();
     }
 

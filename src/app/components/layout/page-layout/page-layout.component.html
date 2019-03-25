@@ -1,0 +1,21 @@
+<div class="layout-container">
+    <span class="margin"></span>
+    <div class="title">
+        <div class="title-bar">
+            <mat-icon style="font-size: 36px; margin-top: 20px; margin-bottom: 20px; color: #fff" [inline]="true">{{ navigation.navData.matIcon }}</mat-icon>
+            <h2 class="title-content">
+                {{ navigation.navData.title }}
+            </h2>
+        </div>
+        <span class="subtitle">
+            {{ navigation.navData.subtitle }}
+        </span>
+    </div>
+    <span class="margin"></span>
+    <mat-list style="padding-top: 20px;">
+        <mat-divider></mat-divider>
+    </mat-list>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>
