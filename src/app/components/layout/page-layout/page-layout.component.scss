@@ -1,0 +1,54 @@
+.layout-container {
+    display: grid;
+    grid-template-columns: 0.05fr 0.9fr 0.05fr;
+    grid-template-areas: '. title mar' 'divider divider divider' '. content .';
+
+    mat-list {
+        background: #673ab7;
+        grid-area: divider;
+    }
+
+    .margin {
+        grid-are: mar;
+        background: #673ab7;
+    }
+
+    .title {
+        background: #673ab7;
+        grid-area: title;
+        display: grid;
+        grid-template-columns: 0.5fr 0.5fr;
+        grid-template-areas: 'title' 'category';
+        align-items: center;
+
+        .title-bar {
+            grid-are: title;
+            display: grid;
+            grid-template-columns: 50px 1fr;
+            align-self: start;
+            align-content: center;
+
+            .title-content {
+                color: #fff;
+                align-self: center;
+            }
+        }
+
+        .subtitle {
+            color: #fff;
+            margin-left: 50px;
+            margin-top: -20px;
+            grid-area: category;
+            align-self: start;
+        }
+
+        .sort-type {
+            align-self: center;
+            justify-self: end;
+        }
+    }
+
+    .content {
+        grid-area: content;
+    }
+}

@@ -1,43 +1,10 @@
-.container {
+.content {
     display: grid;
-    grid-template-columns: 0.05fr 0.9fr 0.05fr;
-    grid-template-areas: '. title .' 'banner banner banner' 'divider divider divider' '. content .';
+    grid-area: content;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
 
-    mat-list {
-        grid-area: divider;
-    }
-
-    .title {
-        grid-area: title;
-        display: grid;
-        grid-template-columns: 0.25fr 0.75fr;
-        align-items: center;
-
-        h2 {
-            display: grid;
-            grid-template-columns: 0.2fr 0.8fr;
-            align-self: start;
-            align-content: center;
-
-            .title-content {
-                align-self: center;
-            }
-        }
-
-        .sort-type {
-            align-self: center;
-            justify-self: end;
-        }
-    }
-
-    .content {
-        display: grid;
-        grid-area: content;
-        grid-template-rows: 1fr;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-
-    mat-card {
-        margin: 10px;
-    }
+mat-card {
+    margin: 10px;
 }

@@ -1,83 +1,40 @@
-.about-container {
+.content {
     display: grid;
-    grid-template-columns: 0.05fr 0.9fr 0.05fr;
-    grid-template-areas: '. title .' 'divider divider divider' '. content-title .' '. content .';
+    grid-column-gap: 50px;
+    grid-row-gap: 30px;
+    margin-bottom: 50px;
 
-    mat-list {
-        grid-area: divider;
+    mat-card {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
-    .title {
-        grid-area: title;
+    .sub-content {
         display: grid;
-        grid-template-columns: 0.5fr 0.5fr;
-        grid-template-areas: 'title' 'category';
-        align-items: center;
-
-        .title-bar {
-            grid-are: title;
-            display: grid;
-            grid-template-columns: 50px 1fr;
-            align-self: start;
-            align-content: center;
-
-            .title-content {
-                align-self: center;
-            }
-        }
-
-        .subtitle {
-            margin-left: 50px;
-            margin-top: -20px;
-            grid-area: category;
-            align-self: start;
-        }
-
-        .sort-type {
-            align-self: center;
-            justify-self: end;
-        }
+        align-content: center;
+        justify-content: center;
     }
 
-    .content-title {
-        grid-area: content-title;
+    .image-container {
         display: grid;
-        grid-template-columns: 0.2fr 0.6fr 0.2fr;
-        grid-template-areas: '. text .';
-        margin-bottom: 20px;
-
-        p {
-            grid-area: text;
-        }
+        align-content: center;
+        justify-content: center;
     }
 
-    .content {
-        grid-area: content;
-        display: grid;
-        grid-column-gap: 50px;
-        grid-row-gap: 30px;
-        margin-bottom: 50px;
+    .image {
+        max-width: 40vh;
+        min-width: 100%;
+    }
+}
 
-        mat-card {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
+.content-title {
+    grid-area: content-title;
+    display: grid;
+    grid-template-columns: 0.2fr 0.6fr 0.2fr;
+    grid-template-areas: '. text .';
+    margin-bottom: 20px;
 
-        .sub-content {
-            display: grid;
-            align-content: center;
-            justify-content: center;
-        }
-
-        .image-container {
-            display: grid;
-            align-content: center;
-            justify-content: center;
-        }
-
-        .image {
-            max-width: 40vh;
-            min-width: 100%;
-        }
+    p {
+        grid-area: text;
     }
 }

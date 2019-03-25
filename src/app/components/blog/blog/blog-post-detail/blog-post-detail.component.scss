@@ -1,46 +1,4 @@
-.container {
-    display: grid;
-    grid-template-columns: 50px 1fr 50px;
-    grid-template-areas: '. title .' 'divider divider divider' '. content .';
-
-    mat-list {
-        grid-area: divider;
-    }
-
-    .title {
-        grid-area: title;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-areas: 'title' 'category';
-        align-items: center;
-
-        .title-bar {
-            grid-are: title;
-            display: grid;
-            grid-template-columns: 50px 1fr;
-            align-self: start;
-            align-content: center;
-
-            .title-content {
-                align-self: center;
-            }
-        }
-
-        .subtitle {
-            margin-left: 50px;
-            margin-top: -20px;
-            grid-area: category;
-            align-self: start;
-        }
-
-        .sort-type {
-            align-self: center;
-            justify-self: end;
-        }
-    }
-
-    .content {
-        font-size: 26px;
-        grid-area: content;
-    }
+.content {
+    font-size: 26px;
+    grid-area: content;
 }

@@ -5,20 +5,26 @@ import { BlogPost } from '../../models/blog-post.model';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { APIBlogPost } from '../blog.component';
+import { NavigationProvider } from '../../../layout/interfaces/NavigationProvider';
+import { NavigationData } from '../../../layout/models/NavigationData';
+import { SharedNavigationService } from '../../../../services/shared-nevigation/shared-navigation.service';
 
 @Component({
     selector: 'app-blog-post-detail',
     templateUrl: './blog-post-detail.component.html',
     styleUrls: ['./blog-post-detail.component.scss'],
 })
-export class BlogPostDetailComponent implements OnInit, OnDestroy {
+export class BlogPostDetailComponent
+    implements OnInit, OnDestroy, NavigationProvider {
     public blogPost: BlogPost;
     private killTrigger$: Subject<any> = new Subject();
     public loaded: Promise<boolean>;
+    navData: NavigationData;
     constructor(
         private blogService: BlogService,
         private route: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        public navService: SharedNavigationService
     ) {}
 
     ngOnInit() {
@@ -38,7 +44,16 @@ export class BlogPostDetailComponent implements OnInit, OnDestroy {
                 (postData: APIBlogPost) =>
                     (this.blogPost = new BlogPost(postData)),
                 err => err,
-                () => (this.loaded = Promise.resolve(true))
+                () => {
+                    // Set nav data and send it through to the shared service
+                    this.navData = new NavigationData(
+                        this.blogPost.title,
+                        this.blogPost.category,
+                        this.blogPost.getIcon()
+                    );
+                    this.navService.initNavigation(this.navData);
+                    this.loaded = Promise.resolve(true);
+                }
             );
     }
 }

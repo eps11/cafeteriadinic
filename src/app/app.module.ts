@@ -29,6 +29,7 @@ import { AboutComponent } from './components/about/about.component';
 import { FinanceCalculatorComponent } from './components/finance-calculator/finance-calculator.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PageLayoutComponent } from './components/layout/page-layout/page-layout.component';
 
 const MatModules = [
     MatSidenavModule,
@@ -56,6 +57,7 @@ const MatModules = [
         BlogPostDetailComponent,
         AboutComponent,
         FinanceCalculatorComponent,
+        PageLayoutComponent,
     ],
     imports: [
         BrowserModule,
