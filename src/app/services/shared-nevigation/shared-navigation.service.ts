@@ -16,7 +16,8 @@ export class SharedNavigationService implements OnInit {
     ngOnInit() {}
 
     /**
-     * Mechanism to initialise current navigation state.
+     * Initialise navigation state.
+     *
      * @param navData Navigation data object to replace in state.
      */
     public initNavigation(navData: NavigationData): void {

@@ -10,11 +10,11 @@ export class MenuService {
     constructor(private http: HttpClient, private utils: UtilitiesService) {}
 
     public getTopMenuData(): Observable<object> {
-        return this.http.get(`${this.utils.apiRoot}/topmenuitems`);
+        return this.http.get(this.utils.getFullHostURL('topmenuitems'));
     }
 
     public getSideMenuData(): Observable<object> {
-        return this.http.get(`${this.utils.apiRoot}/sidemenuitems`);
+        return this.http.get(this.utils.getFullHostURL('sidemenuitems'));
     }
 
     // @todo: refactor this to utils

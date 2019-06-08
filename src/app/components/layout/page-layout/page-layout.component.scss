@@ -1,20 +1,22 @@
+@import '../../../../../src/global-styles.scss';
+
 .layout-container {
     display: grid;
     grid-template-columns: 0.05fr 0.9fr 0.05fr;
     grid-template-areas: '. title mar' 'divider divider divider' '. content .';
 
     mat-list {
-        background: #673ab7;
+        background: $primary;
         grid-area: divider;
     }
 
     .margin {
         grid-are: mar;
-        background: #673ab7;
+        background: $primary;
     }
 
     .title {
-        background: #673ab7;
+        background: $primary;
         grid-area: title;
         display: grid;
         grid-template-columns: 0.5fr 0.5fr;

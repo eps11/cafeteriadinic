@@ -14,6 +14,6 @@ export class AboutService {
      * @param url The URL to query.
      */
     public getTechnologyItems(): Observable<any> {
-        return this.http.get(`${this.utils.apiRoot}/technologyitems`);
+        return this.http.get(this.utils.getFullHostURL('technologyitems'));
     }
 }

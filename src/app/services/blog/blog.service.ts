@@ -15,7 +15,7 @@ export class BlogService {
      * Gets all blog posts.
      */
     public getBlogPosts() {
-        return this.http.get(`${this.utils.apiRoot}/blogposts`);
+        return this.http.get(this.utils.getFullHostURL('blogposts'));
     }
 
     /**
@@ -23,6 +23,6 @@ export class BlogService {
      * @param id The ID of the blog post to retrieve.
      */
     public getBlogPost(id: string | number) {
-        return this.http.get(`${this.utils.apiRoot}/blogposts/${id}`);
+        return this.http.get(this.utils.getFullHostURL('blogposts/${id}'));
     }
 }
